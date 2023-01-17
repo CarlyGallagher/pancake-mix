@@ -1,6 +1,0 @@
-# pancake-mix
-
-USER STORY
-
-ACCEPTANCE CRITERIA
-
