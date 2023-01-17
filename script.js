@@ -36,18 +36,22 @@ function generatePassword() {
   var passlength = prompt(
     'I choose a length of at least 8 characters and no more than 128 characters'
   );
-  if (passlength >= 8 && passwordlength <= 128) {
-    type()
+  if (passlength >= 8 && passlength <= 128) {
+    characterlist();
+    randomPass (passlength);
+    alert ('password is succesful!')
   }
   else {
     alert('Password needs to be between 8 and 128 characters');
   }
+return password;
 }
 
-function random () {
-for (var i = 0; i < passlength; i ++) {
-  password += lists[Math.floor(math.random() * lists.length)]
-}
+function randomPass(passlength) {
+  for (var i = 0; i < passlength; i++) {
+    password += lists[Math.floor(Math.random() * lists.length)]
+  }
+  return password;
 }
 
 
