@@ -13,22 +13,22 @@ var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 var capitalletters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
   'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',];
 
-var lists = [];
+var characters = [];
 
-var password = '';
 
 function characterlist() {
+  characters = [];
   if (confirm('Include lowercase letters?')) {
-    lists = lists.concat(lowercase);
+    characters = characters.concat(lowercase);
   }
   if (confirm('Include capital letters?')) {
-    lists = lists.concat(capitalletters);
+    characters = characters.concat(capitalletters);
   }
   if (confirm('Include specialcharacters?')) {
-    lists = lists.concat(specialcharacters);
+    characters = characters.concat(specialcharacters);
   }
   if (confirm('Include numbers?')) {
-    lists = lists.concat(numbers);
+    characters = characters.concat(numbers);
   }
 }
 
@@ -38,25 +38,23 @@ function generatePassword() {
   );
   if (passlength >= 8 && passlength <= 128) {
     characterlist();
-    randomPass (passlength);
-    alert ('password is succesful!')
+    randomPass(passlength);
+    alert('password is succesful!');
   }
   else {
     alert('Password needs to be between 8 and 128 characters');
   }
-return password;
+  return retVal;
+
 }
 
 function randomPass(passlength) {
+  retVal = '';
   for (var i = 0; i < passlength; i++) {
-    password += lists[Math.floor(Math.random() * lists.length)]
+    retVal += characters[Math.floor(Math.random() * characters.length)]
   }
-  return password;
+  return retVal;
 }
-
-
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -65,6 +63,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
